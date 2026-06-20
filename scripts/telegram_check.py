@@ -295,6 +295,111 @@ def _find_draft_in_repo() -> "str | None":
     return sorted(files)[-1] if files else None
 
 
+def process_update(upd: dict, own_chat_id: str) -> str:
+    """Verarbeitet GENAU EIN Update-Dict und gibt den Verarbeitungs-Status zurueck.
+
+    Rueckgabe:
+        "handled"  — terminale Verarbeitung: Approve oder Reject wurde ausgefuehrt.
+                     Der Aufrufer (main() oder Nachhoer-Loop) soll danach beenden/stoppen.
+        "skipped"  — Update ignoriert oder uebersprungen (fremde Chat-ID, unbekannter
+                     Callback, kein relevanter Befehl). Offset wird trotzdem bestaetigt.
+        "launched" — /neuerpost wurde ausgefuehrt (Subprocess gestartet). main() kehrt
+                     danach zurueck; Nachhoer-Loop kann weiterlaufen oder enden.
+
+    Security:
+        - Chat-ID-Filter (T-03-07 / T-04.1-01): own_chat_id wird gegen cq["message"]
+          ["chat"]["id"] UND cq["from"]["id"] geprueft — fremde IDs werden ignoriert.
+        - Kein Token in Logs/Exceptions (T-04.1-02): keine {e}/str(resp)-Ausgaben.
+
+    Single-Delivery (T-04.1-03): der Offset wird nach JEDEM Update per
+    get_updates(offset=update_id + 1) bestaetigt — auch bei "skipped". Das
+    garantiert, dass dasselbe Update weder vom Nachhoer-Loop noch vom
+    post-approval-Cron ein zweites Mal gesehen wird.
+
+    Args:
+        upd:         Ein einzelnes Update-Objekt aus get_updates().
+        own_chat_id: Die eigene TELEGRAM_CHAT_ID als String (wird gegen das Update
+                     geprueft; der Aufrufer laedt sie einmalig und uebergibt sie).
+    """
+    update_id = upd["update_id"]
+    cq = upd.get("callback_query")
+
+    if not cq:
+        # Text-Nachrichten: /neuerpost oder unbekannter Befehl
+        msg = upd.get("message", {})
+        msg_text = (msg.get("text") or "").strip()
+        if msg_text.startswith("/neuerpost"):
+            # Sicherheits-Filter (T-04-17): nur eigene Chat-ID darf kostenpflichtige
+            # Generierung ausloesen — fremde Befehle werden still verworfen.
+            msg_chat = str(msg.get("chat", {}).get("id", ""))
+            msg_from = str(msg.get("from", {}).get("id", ""))
+            if own_chat_id not in (msg_chat, msg_from):
+                print("  Fremder /neuerpost — ignoriert (T-04-17).")
+                get_updates(offset=update_id + 1)
+                return "skipped"
+            # Optionales Thema: "/neuerpost Goldafter" -> thema = "Goldafter"
+            parts = msg_text.split(None, 1)
+            thema = parts[1].strip() if len(parts) > 1 else ""
+            # content_machine als Subprocess (T-04-18: kein shell=True -> keine Injection)
+            env = {**os.environ, "INPUT_THEMA": thema}
+            subprocess.run(
+                [sys.executable, str(Path(__file__).resolve().parent / "content_machine.py")],
+                env=env,
+                check=True,
+            )
+            send_message(f"Generierungslauf gestartet (Thema: {thema or 'aktuell'})...")
+            get_updates(offset=update_id + 1)  # Offset bestaetigen — keine Doppelverarbeitung
+            return "launched"
+        # Kein bekannter Befehl: bestaetigen und ueberspringen.
+        get_updates(offset=update_id + 1)
+        return "skipped"
+
+    # callback_query: chat_id unter cq["message"]["chat"]["id"] oder cq["from"]["id"]
+    # Beide pruefen, damit der Filter auch bei editierten/geloeschten Nachrichten greift.
+    msg_chat_id = str(cq.get("message", {}).get("chat", {}).get("id", ""))
+    from_id = str(cq.get("from", {}).get("id", ""))
+    if own_chat_id not in (msg_chat_id, from_id):
+        print(f"  Fremde Chat-ID ({msg_chat_id or from_id}) — ignoriert (T-03-07).")
+        get_updates(offset=update_id + 1)  # bestaetigen, nicht erneut holen
+        return "skipped"
+
+    data = cq.get("data", "")
+
+    if data.startswith("approve:"):
+        slug = data.split(":", 1)[1]
+        draft = _find_draft_in_repo()
+        if draft is None:
+            print("Kein offener Draft im Repo gefunden.")
+            get_updates(offset=update_id + 1)
+            return "handled"
+        title = _do_approve({"draft_filename": draft, "slug": slug, "title": slug})
+        answer_callback_query(cq["id"], "Veroeffentlicht")
+        # D-09: klickbarer Live-Link (Titel als Link-Text, HTML-escaped; NIE MarkdownV2)
+        site_url = _load_secret("SITE_BASE_URL").rstrip("/")
+        live_url = f"{site_url}/blog-{slug}.html"
+        send_message(
+            f'✅ Veroeffentlicht: <a href="{live_url}">{html.escape(title)}</a>',
+            parse_mode="HTML",
+        )
+        get_updates(offset=update_id + 1)  # Q2: sofort bestaetigen = Persistenz
+        return "handled"
+
+    elif data.startswith("reject:"):
+        slug = data.split(":", 1)[1]
+        draft = _find_draft_in_repo()
+        if draft:
+            _do_reject({"draft_filename": draft})
+        answer_callback_query(cq["id"], "Verworfen")
+        send_message(f"\U0001f5d1 Verworfen: {slug}")
+        get_updates(offset=update_id + 1)  # Q2: sofort bestaetigen = Persistenz
+        return "handled"
+
+    else:
+        # Anderer/alter Callback — bestaetigen und ueberspringen.
+        get_updates(offset=update_id + 1)
+        return "skipped"
+
+
 def main() -> None:
     # State-frei (Q1): kein read_pending mehr — der Draft liegt im Repo, der Slug
     # kommt aus callback_data. Offset-Bestaetigung (Q2) ersetzt den Pending-State.
@@ -308,79 +413,9 @@ def main() -> None:
     own_chat_id = str(_load_secret("TELEGRAM_CHAT_ID"))
 
     for upd in updates:
-        update_id = upd["update_id"]
-        cq = upd.get("callback_query")
-        if not cq:
-            msg = upd.get("message", {})
-            msg_text = (msg.get("text") or "").strip()
-            if msg_text.startswith("/neuerpost"):
-                # Sicherheits-Filter (T-04-17): nur eigene Chat-ID darf kostenpflichtige
-                # Generierung ausloesen — fremde Befehle werden still verworfen.
-                msg_chat = str(msg.get("chat", {}).get("id", ""))
-                msg_from = str(msg.get("from", {}).get("id", ""))
-                if own_chat_id not in (msg_chat, msg_from):
-                    print("  Fremder /neuerpost — ignoriert (T-04-17).")
-                    get_updates(offset=update_id + 1)
-                    continue
-                # Optionales Thema: "/neuerpost Goldafter" -> thema = "Goldafter"
-                parts = msg_text.split(None, 1)
-                thema = parts[1].strip() if len(parts) > 1 else ""
-                # content_machine als Subprocess (T-04-18: kein shell=True -> keine Injection)
-                env = {**os.environ, "INPUT_THEMA": thema}
-                subprocess.run(
-                    [sys.executable, str(Path(__file__).resolve().parent / "content_machine.py")],
-                    env=env,
-                    check=True,
-                )
-                send_message(f"Generierungslauf gestartet (Thema: {thema or 'aktuell'})...")
-                get_updates(offset=update_id + 1)  # Offset bestaetigen — keine Doppelverarbeitung
-                return
-            # Kein bekannter Befehl: bestaetigen und ueberspringen.
-            get_updates(offset=update_id + 1)
-            continue
-
-        # chat_id unter cq["message"]["chat"]["id"] oder cq["from"]["id"] — beide
-        # pruefen, damit der Filter auch bei editierten/geloeschten Nachrichten greift.
-        msg_chat_id = str(cq.get("message", {}).get("chat", {}).get("id", ""))
-        from_id = str(cq.get("from", {}).get("id", ""))
-        if own_chat_id not in (msg_chat_id, from_id):
-            print(f"  Fremde Chat-ID ({msg_chat_id or from_id}) — ignoriert (T-03-07).")
-            get_updates(offset=update_id + 1)  # bestaetigen, nicht erneut holen
-            continue
-
-        data = cq.get("data", "")
-
-        if data.startswith("approve:"):
-            slug = data.split(":", 1)[1]
-            draft = _find_draft_in_repo()
-            if draft is None:
-                print("Kein offener Draft im Repo gefunden.")
-                get_updates(offset=update_id + 1)
-                return
-            title = _do_approve({"draft_filename": draft, "slug": slug, "title": slug})
-            answer_callback_query(cq["id"], "Veroeffentlicht")
-            # D-09: klickbarer Live-Link (Titel als Link-Text, HTML-escaped; NIE MarkdownV2)
-            site_url = _load_secret("SITE_BASE_URL").rstrip("/")
-            live_url = f"{site_url}/blog-{slug}.html"
-            send_message(
-                f'✅ Veroeffentlicht: <a href="{live_url}">{html.escape(title)}</a>',
-                parse_mode="HTML",
-            )
-            get_updates(offset=update_id + 1)  # Q2: sofort bestaetigen = Persistenz
+        result = process_update(upd, own_chat_id)
+        if result in ("handled", "launched"):
             return
-        elif data.startswith("reject:"):
-            slug = data.split(":", 1)[1]
-            draft = _find_draft_in_repo()
-            if draft:
-                _do_reject({"draft_filename": draft})
-            answer_callback_query(cq["id"], "Verworfen")
-            send_message(f"\U0001f5d1 Verworfen: {slug}")
-            get_updates(offset=update_id + 1)  # Q2: sofort bestaetigen = Persistenz
-            return
-        else:
-            # Anderer/alter Callback — bestaetigen und ueberspringen.
-            get_updates(offset=update_id + 1)
-            continue
 
     print("Kein passendes Update gefunden.")
 

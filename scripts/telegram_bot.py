@@ -215,7 +215,7 @@ def send_post_text(post: dict) -> None:
         send_message(chunk)
 
 
-def get_updates(offset: int = 0) -> list:
+def get_updates(offset: int = 0, long_poll: int = 0) -> list:
     """Pollt getUpdates einmal und gibt Liste von Update-Objekten zurueck.
 
     Wird von Skript B (telegram_check.py, Plan 02) verwendet.
@@ -223,15 +223,28 @@ def get_updates(offset: int = 0) -> list:
     naechster Cron-Run holt nach.
 
     Args:
-        offset: Update-ID-Offset (verhindert Doppelverarbeitung).
+        offset:    Update-ID-Offset (verhindert Doppelverarbeitung).
+        long_poll: Telegram "timeout"-Parameter in Sekunden. Default 0 = Short-Poll
+                   (Telegram-timeout=1, requests-Timeout=15 — Rueckwaertskompatibilitaet).
+                   Fuer Long-Poll z.B. 25-30 setzen; requests-Timeout wird automatisch
+                   auf long_poll + 10 gesetzt, damit Telegram vor requests antwortet.
+                   INVARIANT: requests-Timeout > long_poll (sonst bricht requests die
+                   Verbindung ab, bevor Telegram antwortet, und der Phase-04.1-Effekt
+                   "Sekunden statt Minuten" entfaellt).
 
     Returns:
         Liste von Update-Dicts (kann leer sein).
     """
     token = _load_secret("TELEGRAM_BOT_TOKEN")
     url = TELEGRAM_API.format(token=token, method="getUpdates")
+    if long_poll > 0:
+        tg_timeout = long_poll
+        req_timeout = long_poll + 10  # INVARIANT: req_timeout > long_poll
+    else:
+        tg_timeout = 1   # Short-Poll (Default, Rueckwaertskompatibilitaet)
+        req_timeout = 15
     try:
-        resp = requests.get(url, params={"offset": offset, "timeout": 1}, timeout=15)
+        resp = requests.get(url, params={"offset": offset, "timeout": tg_timeout}, timeout=req_timeout)
     except requests.RequestException:
         # Nie {e} ausgeben — die Exception-Meldung enthaelt die Token-URL (Leak).
         print("  getUpdates fehlgeschlagen (Netzwerkfehler) — ignoriert.")

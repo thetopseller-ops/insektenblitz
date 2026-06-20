@@ -1,53 +1,51 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://insektenblitz.com/</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://insektenblitz.com/blog-eps-saison.html</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://insektenblitz.com/blog-gifthaare-schutz.html</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://insektenblitz.com/blog-palmenzuensler-mallorca.html</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://insektenblitz.com/agb.html</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <url>
-    <loc>https://insektenblitz.com/impressum.html</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-
-  <url>
-    <loc>https://insektenblitz.com/datenschutz.html</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-
-</urlset>
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:urlset xmlns:ns0="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <ns0:url>
+    <ns0:loc>https://insektenblitz.com/</ns0:loc>
+    <ns0:lastmod>2026-06-14</ns0:lastmod>
+    <ns0:changefreq>weekly</ns0:changefreq>
+    <ns0:priority>1.0</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://insektenblitz.com/blog-eps-saison.html</ns0:loc>
+    <ns0:lastmod>2026-06-14</ns0:lastmod>
+    <ns0:changefreq>monthly</ns0:changefreq>
+    <ns0:priority>0.8</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://insektenblitz.com/blog-gifthaare-schutz.html</ns0:loc>
+    <ns0:lastmod>2026-06-14</ns0:lastmod>
+    <ns0:changefreq>monthly</ns0:changefreq>
+    <ns0:priority>0.8</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://insektenblitz.com/blog-palmenzuensler-mallorca.html</ns0:loc>
+    <ns0:lastmod>2026-06-14</ns0:lastmod>
+    <ns0:changefreq>monthly</ns0:changefreq>
+    <ns0:priority>0.8</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://insektenblitz.com/agb.html</ns0:loc>
+    <ns0:lastmod>2026-06-14</ns0:lastmod>
+    <ns0:changefreq>yearly</ns0:changefreq>
+    <ns0:priority>0.3</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://insektenblitz.com/impressum.html</ns0:loc>
+    <ns0:lastmod>2026-06-14</ns0:lastmod>
+    <ns0:changefreq>yearly</ns0:changefreq>
+    <ns0:priority>0.2</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://insektenblitz.com/datenschutz.html</ns0:loc>
+    <ns0:lastmod>2026-06-14</ns0:lastmod>
+    <ns0:changefreq>yearly</ns0:changefreq>
+    <ns0:priority>0.2</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://insektenblitz.pages.dev/blog-eichenprozessionsspinner-2026-wenn-raupen-kitas.html</ns0:loc>
+    <ns0:lastmod>2026-06-20</ns0:lastmod>
+    <ns0:changefreq>monthly</ns0:changefreq>
+    <ns0:priority>0.8</ns0:priority>
+  </ns0:url>
+</ns0:urlset>
