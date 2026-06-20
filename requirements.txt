@@ -1,0 +1,4 @@
+anthropic>=0.84.0,<1.0.0
+requests>=2.32.0,<3.0.0
+defusedxml==0.7.1
+tenacity>=9.0.0,<10.0.0
