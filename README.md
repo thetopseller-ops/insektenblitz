@@ -3,6 +3,13 @@ Hier liegt unsere Website zum EPS Projekt
 [Erforderliche Ergänzungen vor Veröffentlichung.md](https://github.com/user-attachments/files/28924299/Erforderliche.Erganzungen.vor.Veroffentlichung.md)
 
 
+> **Automatische Content-Maschine:** Diese Website hat ein automatisches System, das täglich
+> einen Blogpost-Entwurf zum Eichenprozessionsspinner erstellt und nach Freigabe per Telegram
+> live schaltet. Bedienung, Einrichtung und Betrieb stehen in **[CONTENT-MACHINE.md](CONTENT-MACHINE.md)**
+> — verständlich erklärt, kein Programmier-Wissen nötig.
+
+---
+
 # Erforderliche Ergänzungen vor Veröffentlichung
 ### Insektenblitz – insektenblitz.de
 *Stand: Juni 2026 — vollständige Checkliste, kein Punkt darf fehlen*

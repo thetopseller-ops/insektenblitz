@@ -2,3 +2,13 @@
 Thumbs.db
 *.log
 images/WhatsApp*
+
+# GSD-Planung lokal halten (oeffentliches Repo!)
+.planning/
+.env
+.env.local
+CLAUDE.md
+draft-*.html
+.telegram-pending.json
+__pycache__/
+*.pyc
