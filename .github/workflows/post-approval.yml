@@ -1,8 +1,12 @@
 name: Post Approval Check
 
+# Nur noch MANUELL (Notfall-Wiederherstellung). Seit dem Telegram-Webhook
+# (Option B) werden Approve/Reject sofort verarbeitet; der 15-Min-Cron ist
+# abgeschaltet, damit Polling nicht mit dem Webhook kollidiert (Telegram
+# erlaubt nicht getUpdates UND Webhook gleichzeitig -> 409). Bei Webhook-/
+# Netlify-Ausfall: erst `python scripts/set_webhook.py delete`, dann hier
+# "Run workflow" klicken.
 on:
-  schedule:
-    - cron: '*/15 * * * *'
   workflow_dispatch:
 
 permissions:
