@@ -30,8 +30,11 @@ export default async (req: Request): Promise<Response> => {
   const repo = Netlify.env.get("GH_DISPATCH_REPO"); // z.B. "erriionn/insektenblitz"
   const token = Netlify.env.get("GH_DISPATCH_PAT");
   if (!repo || !token) {
-    // Fehlkonfiguration -> 500, Telegram stellt erneut zu (keine verlorene Freigabe).
-    return new Response("Server misconfigured", { status: 500 });
+    // Fehlkonfiguration: 503 (von einem GitHub-Dispatch-Fehler unterscheidbar).
+    console.error(
+      `relay misconfig: hasRepo=${!!repo} hasToken=${!!token}`,
+    );
+    return new Response("Server misconfigured", { status: 503 });
   }
 
   const ghRes = await fetch(`https://api.github.com/repos/${repo}/dispatches`, {
@@ -48,10 +51,15 @@ export default async (req: Request): Promise<Response> => {
     }),
   });
 
-  // GitHub antwortet 204 bei Erfolg. Fehler -> 500, damit Telegram den Klick
-  // spaeter erneut zustellt (Telegram haelt Updates ~24h vor).
+  // GitHub antwortet 204 bei Erfolg. Bei Fehler den ECHTEN GitHub-Status
+  // durchreichen (403 = PAT-Rechte, 404 = Repo/Access falsch, 422 = Payload),
+  // damit getWebhookInfo den Grund zeigt. Nicht-2xx -> Telegram stellt erneut zu.
   if (!ghRes.ok) {
-    return new Response("Dispatch failed", { status: 500 });
+    const detail = (await ghRes.text()).slice(0, 300);
+    console.error(`github dispatch failed: ${ghRes.status} ${detail}`);
+    return new Response(`Dispatch failed: ${ghRes.status}`, {
+      status: ghRes.status,
+    });
   }
   return new Response("OK", { status: 200 });
 };

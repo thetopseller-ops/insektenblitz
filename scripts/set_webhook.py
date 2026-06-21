@@ -2,6 +2,7 @@
 
   python scripts/set_webhook.py set https://<deine-site>.netlify.app/telegram-webhook
   python scripts/set_webhook.py delete
+  python scripts/set_webhook.py info     # Diagnose: URL + letzter Zustellfehler
 
 set:    registriert die URL + secret_token (aus TELEGRAM_WEBHOOK_SECRET). Danach
         liefert getUpdates 409 — Polling ist abgeloest, Klicks gehen an die URL.
@@ -22,10 +23,24 @@ from telegram_bot import _load_secret, TELEGRAM_API
 
 
 def main() -> None:
-    if len(sys.argv) < 2 or sys.argv[1] not in ("set", "delete"):
-        sys.exit("Aufruf: python scripts/set_webhook.py set <url> | delete")
+    if len(sys.argv) < 2 or sys.argv[1] not in ("set", "delete", "info"):
+        sys.exit("Aufruf: python scripts/set_webhook.py set <url> | delete | info")
 
     token = _load_secret("TELEGRAM_BOT_TOKEN")
+
+    if sys.argv[1] == "info":
+        # Diagnose: zeigt, was Telegram ueber den Webhook weiss — v.a. die letzte
+        # Zustell-Fehlermeldung (z.B. "Wrong response from the webhook: 401").
+        resp = requests.post(
+            TELEGRAM_API.format(token=token, method="getWebhookInfo"), timeout=15
+        )
+        info = resp.json().get("result", {})
+        print(f"url:                   {info.get('url')}")
+        print(f"pending_update_count:  {info.get('pending_update_count')}")
+        print(f"last_error_message:    {info.get('last_error_message')}")
+        print(f"last_error_date:       {info.get('last_error_date')}")
+        print(f"allowed_updates:       {info.get('allowed_updates')}")
+        return
 
     if sys.argv[1] == "set":
         if len(sys.argv) < 3:
