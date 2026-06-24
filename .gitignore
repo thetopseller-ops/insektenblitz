@@ -12,3 +12,6 @@ draft-*.html
 .telegram-pending.json
 __pycache__/
 *.pyc
+
+# Netlify-Build-Artefakte (kein User-Code)
+.netlify/

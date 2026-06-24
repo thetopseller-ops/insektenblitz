@@ -189,36 +189,15 @@ def main() -> None:
         print("\nNaechster Schritt: python scripts/telegram_check.py (Plan 02) ausfuehren,")
         print("um die Antwort auszuwerten (Approve -> live / Reject -> loeschen).")
 
-        # ---------------------------------------------------------------------------
-        # Phase 04.1: Nachhoer-Fenster (~5-8 Min) — faengt schnelle Approve/Reject-
-        # Klicks INLINE ab, sodass der Post in Sekunden live geht (statt erst beim
-        # naechsten post-approval-Cron in bis zu 15 Min).
-        #
-        # Kernregeln (AUTO-01..04):
-        #   - KEINE eigene Approve/Reject-Logik hier — ausschliesslich process_update()
-        #     aus telegram_check verwenden (eine Quelle der Wahrheit, T-04.1-01).
-        #   - Offset fortschreiben: Telegram liefert jeden Klick einmal; Fenster +
-        #     Cron koennen denselben Klick NICHT doppelt verarbeiten (T-04.1-03).
-        #   - Tolerant: ein Loop-Fehler darf den bereits gesendeten Vorschau-Lauf
-        #     NICHT abbrechen (T-04.1-02).
-        #   - Health-Ping (D-12) kommt erst nach dem Loop-Exit — immer als letzter Schritt.
-        #   - Loop-Logik + Stale-Update-Schutz (WR-02): siehe nachhoer_loop().
-        # ---------------------------------------------------------------------------
-        try:
-            own_chat_id = str(_load_secret("TELEGRAM_CHAT_ID"))
-            print(f"\nNachhoer-Fenster gestartet ({NACHHOER_BUDGET_S // 60} Min) ...")
-            if nachhoer_loop(own_chat_id):
-                print("  Nachhoer-Fenster: Approve/Reject erhalten — Loop beendet.")
-            else:
-                print("  Nachhoer-Fenster abgelaufen — post-approval-Cron uebernimmt spaete Klicks.")
-
-        except Exception as exc:
-            # Tolerant: Loop-Fehler darf Vorschau-Lauf nicht nachtraeglich abbrechen.
-            # Token-Schwaerzung analog zum bestehenden Fehler-Ping-Block (T-04.1-02).
-            # WR-01: erst schwaerzen, dann kuerzen (kein Token-Leak durch Kuerzungs-Schnitt).
-            detail = _redact_secrets(str(exc))[:200]
-            print(f"  WARNUNG: Nachhoer-Loop-Fehler ({type(exc).__name__}): {detail} — "
-                  f"Vorschau-Lauf bleibt gueltig.")
+        # Phase 04.1 (7-Min-Nachhoer-Loop) -> ersetzt durch Telegram-Webhook
+        # (Option B, 2026-06-21): Approve/Reject laufen jetzt SOFORT per
+        # Webhook -> repository_dispatch -> telegram-webhook.yml -> process_update(),
+        # unabhaengig vom verspaeteten GitHub-Cron. Der Inline-Loop ist damit
+        # ueberfluessig (Webhook und getUpdates schliessen sich ohnehin aus —
+        # Telegram erlaubt nicht beides gleichzeitig). nachhoer_loop() bleibt
+        # vorerst ungenutzt im Modul (Tests gruen, Rollback leicht), bis der
+        # Webhook in Produktion bestaetigt ist.
+        # ponytail: nur den Loop-Aufruf entfernt; Funktion erst nach Prod-Beweis loeschen.
 
         # D-12: Health-Ping — erst nach dem Nachhoer-Loop (immer letzter Schritt von main()).
         # post-approval-Lauf ruft telegram_check.py auf, NICHT main() — bleibt ping-frei.

@@ -1,0 +1,36 @@
+name: Telegram Webhook Handler
+
+# Wird SOFORT durch das Netlify-Relay (netlify/functions/telegram-webhook.mts)
+# via repository_dispatch ausgeloest — unabhaengig vom verspaeteten GitHub-Cron.
+# Verarbeitet genau das eine durchgereichte Telegram-Update (Approve/Reject/neuerpost).
+on:
+  repository_dispatch:
+    types: [telegram-update]
+
+permissions:
+  contents: write
+
+jobs:
+  handle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Abhaengigkeiten installieren
+        run: pip install -r requirements.txt
+
+      - name: Telegram-Update verarbeiten
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SITE_BASE_URL: ${{ secrets.SITE_BASE_URL }}
+          # Noetig fuer /neuerpost: process_update startet dann content_machine.
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Das vom Relay durchgereichte Telegram-Update als JSON-String.
+          WEBHOOK_UPDATE: ${{ toJSON(github.event.client_payload.update) }}
+        run: python scripts/process_webhook_update.py
