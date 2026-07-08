@@ -170,9 +170,9 @@
       .nav-sub-toggle { padding: 0; font-size: 12px; background: none; width: auto; gap: 4px; }
       .nav-sub-toggle:hover { background: none; }
       .nav-has-sub { position: relative; }
-      .nav-sub { position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%); background: white; border-radius: var(--radius); box-shadow: 0 8px 24px rgba(0,0,0,0.12); min-width: 160px; z-index: 50; display: none; }
+      .nav-sub { position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%); background: white; border-radius: var(--radius); box-shadow: 0 8px 24px rgba(0,0,0,0.12); min-width: 160px; z-index: 50; display: block; visibility: hidden; opacity: 0; transition: opacity 0.15s ease 0.35s, visibility 0s linear 0.5s; }
       .nav-has-sub:hover .nav-sub,
-      .nav-has-sub.open .nav-sub { display: block; max-height: none; overflow-y: visible; }
+      .nav-has-sub.open .nav-sub { display: block; max-height: none; overflow-y: visible; visibility: visible; opacity: 1; transition: opacity 0.15s ease, visibility 0s; }
       .nav-sub li { border-top: 1px solid var(--border); }
       .nav-sub a { padding: 12px 20px; font-size: 12px; white-space: nowrap; color: var(--text-dark); }
       .nav-kontakt-item { display: none; }
