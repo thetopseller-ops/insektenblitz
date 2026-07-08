@@ -72,4 +72,16 @@
     <ns0:changefreq>monthly</ns0:changefreq>
     <ns0:priority>0.8</ns0:priority>
   </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://insektenblitz.com/blog-eps-buerogebaeude.html</ns0:loc>
+    <ns0:lastmod>2026-06-30</ns0:lastmod>
+    <ns0:changefreq>monthly</ns0:changefreq>
+    <ns0:priority>0.8</ns0:priority>
+  </ns0:url>
+  <ns0:url>
+    <ns0:loc>https://insektenblitz.com/blog.html</ns0:loc>
+    <ns0:lastmod>2026-07-08</ns0:lastmod>
+    <ns0:changefreq>weekly</ns0:changefreq>
+    <ns0:priority>0.9</ns0:priority>
+  </ns0:url>
 </ns0:urlset>

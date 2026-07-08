@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog &amp; Wissen – Insektenblitz</title>
+  <meta name="description" content="Alle Artikel zu Eichenprozessionsspinner (EPS), Goldafter &amp; Palmenzünsler – Ratgeber, Frühwarnung und Schutzmaßnahmen von Insektenblitz." />
+  <meta name="keywords" content="Eichenprozessionsspinner Blog, EPS Ratgeber, Goldafter Tipps, Palmenzünsler Mallorca, Gifthaare Schutz, Schädlingsbekämpfung Wissen" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://insektenblitz.com/blog.html" />
+
+  <!-- Google Consent Mode v2 – muss VOR GTM stehen -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      analytics_storage:  'denied',
+      ad_storage:         'denied',
+      ad_user_data:       'denied',
+      ad_personalization: 'denied',
+      wait_for_update:     500
+    });
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T6N4WV2M');</script>
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/logo-insektenblitz.svg" type="image/svg+xml" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://insektenblitz.com/blog.html" />
+  <meta property="og:title" content="Blog &amp; Wissen – Insektenblitz" />
+  <meta property="og:description" content="Alle Artikel zu Eichenprozessionsspinner, Goldafter &amp; Palmenzünsler. Ratgeber und Schutzmaßnahmen von Insektenblitz." />
+  <meta property="og:image" content="https://insektenblitz.com/images/hero-eps-finka.jpg" />
+  <meta property="og:locale" content="de_DE" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog &amp; Wissen – Insektenblitz" />
+  <meta name="twitter:description" content="Alle Artikel zu Eichenprozessionsspinner, Goldafter &amp; Palmenzünsler von Insektenblitz." />
+  <meta name="twitter:image" content="https://insektenblitz.com/images/hero-eps-finka.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Insektenblitz Blog",
+    "description": "Ratgeber zu Eichenprozessionsspinner, Goldafter und Palmenzünsler",
+    "url": "https://insektenblitz.com/blog.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Insektenblitz",
+      "logo": { "@type": "ImageObject", "url": "https://insektenblitz.com/images/logo-insektenblitz.svg" }
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="fonts/fonts.css" />
+  <style>
+    :root {
+      --primary-green:  #1d5a3d;
+      --primary-light:  #2d8659;
+      --primary-bright: #3fb566;
+      --danger-red:     #d9534f;
+      --bg-light:       #f8f9f7;
+      --text-dark:      #1a2423;
+      --text-light:     #6b7574;
+      --text-muted:     #999999;
+      --border:         #e0e5e3;
+      --serif:          'Merriweather', Georgia, serif;
+      --sans:           'Open Sans', system-ui, sans-serif;
+      --max-width:      1280px;
+      --radius:         8px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { background: var(--bg-light); color: var(--text-dark); font-family: var(--sans); line-height: 1.6; overflow-x: hidden; }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+    @media (min-width: 768px) { .container { padding: 0 32px; } }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; border-radius: var(--radius); transition: all 0.3s ease; cursor: pointer; border: none; text-transform: uppercase; }
+    .btn-call { background: var(--danger-red); color: white; font-size: 15px; font-weight: 700; padding: 16px 24px; }
+    .btn-call:hover { background: #c9302c; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(217,83,79,0.3); }
+
+    /* NAVIGATION */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(248,249,247,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); height: 70px; display: flex; align-items: center; transition: box-shadow 0.3s ease; }
+    nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.1); }
+    .nav-logo { font-family: var(--sans); font-size: 19px; font-weight: 800; letter-spacing: -0.5px; text-transform: lowercase; color: var(--primary-green); display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo strong { font-weight: 800; color: #E98932; }
+    .nav-logo-img { width: 44px; height: 44px; flex-shrink: 0; }
+    .hamburger { display: flex; flex-direction: column; gap: 6px; cursor: pointer; background: none; border: none; padding: 8px; margin-right: -8px; }
+    .hamburger span { display: block; width: 25px; height: 3px; background: var(--primary-green); border-radius: 3px; transition: all 0.3s ease; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+    @media (min-width: 768px) { .hamburger { display: none; } }
+    .nav-menu { position: fixed; top: 70px; left: 0; width: 80%; max-width: 300px; height: calc(100vh - 70px); background: white; z-index: 99; transform: translateX(-100%); transition: transform 0.3s ease; box-shadow: 2px 0 10px rgba(0,0,0,0.1); overflow: hidden; }
+    .nav-menu.active { transform: translateX(0); }
+    .nav-links { display: flex; flex-direction: column; gap: 0; list-style: none; padding: 20px 0; }
+    .nav-links > li { border-bottom: 1px solid var(--border); }
+    .nav-links a { display: block; padding: 16px 24px; font-size: 14px; font-weight: 600; color: var(--text-dark); transition: all 0.3s; text-transform: uppercase; letter-spacing: 1px; background: transparent; }
+    .nav-links a:hover { background: var(--bg-light); color: var(--primary-green); }
+    .nav-sub-toggle { width: 100%; background: none; border: none; padding: 16px 24px; text-align: left; font-size: 14px; font-weight: 600; color: var(--text-dark); cursor: pointer; display: flex; justify-content: space-between; align-items: center; text-transform: uppercase; letter-spacing: 1px; font-family: var(--sans); }
+    .nav-sub-toggle:hover { background: var(--bg-light); color: var(--primary-green); }
+    .nav-sub-arrow { font-size: 10px; transition: transform 0.3s; }
+    .nav-has-sub.open .nav-sub-arrow { transform: rotate(180deg); }
+    .nav-sub { display: none; list-style: none; background: var(--bg-light); }
+    .nav-has-sub.open .nav-sub { display: block; max-height: calc(100vh - 370px); overflow-y: auto; }
+    .nav-sub li { border-top: 1px solid var(--border); }
+    .nav-sub a { padding: 13px 24px 13px 36px; font-size: 13px; color: var(--text-light); }
+    .nav-sub a[aria-current="page"] { color: var(--primary-green); font-weight: 700; }
+    .nav-kontakt-item a { background: var(--primary-green) !important; color: white !important; text-align: center; margin: 12px 16px; border-radius: var(--radius); padding: 14px 24px !important; }
+    .nav-kontakt-item a:hover { background: var(--primary-light) !important; }
+    @media (min-width: 768px) {
+      .nav-menu { position: relative; transform: none; top: auto; width: auto; height: auto; max-width: none; background: none; box-shadow: none; overflow: visible; }
+      .nav-links { display: flex; flex-direction: row; gap: 30px; padding: 0; align-items: center; }
+      .nav-links > li { border-bottom: none; }
+      .nav-links a { padding: 0; font-size: 12px; }
+      .nav-links a:hover { background: none; }
+      .nav-sub-toggle { padding: 0; font-size: 12px; background: none; width: auto; gap: 4px; }
+      .nav-sub-toggle:hover { background: none; }
+      .nav-has-sub { position: relative; }
+      .nav-sub { position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%); background: white; border-radius: var(--radius); box-shadow: 0 8px 24px rgba(0,0,0,0.12); min-width: 160px; z-index: 50; display: block; visibility: hidden; opacity: 0; transition: opacity 0.15s ease 0.35s, visibility 0s linear 0.5s; }
+      .nav-has-sub:hover .nav-sub,
+      .nav-has-sub.open .nav-sub { display: block; max-height: none; overflow-y: visible; visibility: visible; opacity: 1; transition: opacity 0.15s ease, visibility 0s; }
+      .nav-sub li { border-top: 1px solid var(--border); }
+      .nav-sub a { padding: 12px 20px; font-size: 12px; white-space: nowrap; color: var(--text-dark); }
+      .nav-sub a[aria-current="page"] { color: var(--primary-green); font-weight: 700; }
+      .nav-kontakt-item { display: none; }
+    }
+    .nav-cta { display: none; gap: 15px; align-items: center; }
+    @media (min-width: 768px) { .nav-cta { display: flex; } }
+
+    /* FLOATING CTA */
+    .floating-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 98; background: var(--danger-red); padding: 12px 15px; text-align: center; }
+    .floating-cta button { width: 100%; background: var(--danger-red); color: white; font-size: 16px; font-weight: 700; padding: 15px 20px; border: none; border-radius: 0; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s; }
+    .floating-cta button:active { transform: scale(0.98); }
+    @media (min-width: 768px) {
+      .floating-cta { position: fixed; bottom: 30px; right: 30px; left: auto; width: auto; background: transparent; padding: 0; }
+      .floating-cta button { padding: 16px 32px; border-radius: var(--radius); box-shadow: 0 8px 24px rgba(217,83,79,0.3); }
+      .floating-cta button:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(217,83,79,0.4); }
+    }
+    @media (max-width: 767px) { body { padding-bottom: 70px; } }
+
+    /* WhatsApp */
+    .wa-share { position: fixed; bottom: 90px; right: 30px; z-index: 97; background: #25D366; width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,0.4); transition: all 0.3s; cursor: pointer; text-decoration: none; }
+    .wa-share:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 8px 24px rgba(37,211,102,0.5); }
+    .wa-share svg { width: 28px; height: 28px; fill: white; }
+    @media (max-width: 767px) { .wa-share { bottom: 80px; right: 16px; width: 46px; height: 46px; } }
+  </style>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6N4WV2M" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="container" style="padding: 0 20px; width: 100%; max-width: 100%; margin: 0; display: flex; align-items: center; justify-content: space-between; height: 100%;">
+    <a class="nav-logo" href="index.html" aria-label="Insektenblitz – zur Startseite">
+      <img class="nav-logo-img" src="images/logo-insektenblitz.svg" alt="Insektenblitz Logo">
+      <span>insekten<strong>blitz</strong></span>
+    </a>
+    <button class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-menu" id="navMenu">
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">Über Uns</a></li>
+        <li class="nav-has-sub">
+          <button class="nav-sub-toggle" aria-expanded="false" id="wissenToggle">
+            Wissen <span class="nav-sub-arrow">▾</span>
+          </button>
+          <ul class="nav-sub">
+            <li><a href="index.html#services">Schädlinge</a></li>
+            <li><a href="index.html#alert">Gefahren</a></li>
+            <li><a href="blog.html" aria-current="page">Blog</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html#pricing">Preise</a></li>
+        <li class="nav-kontakt-item"><a href="index.html#kontakt">Kontakt anfragen</a></li>
+      </ul>
+    </div>
+    <div class="nav-cta">
+      <a href="index.html#kontakt" class="btn btn-call">Beratung anfordern</a>
+    </div>
+  </div>
+</nav>
+
+<!-- WhatsApp Share -->
+<a class="wa-share" href="https://wa.me/?text=%E2%9A%A1%20Insektenblitz%20%E2%80%93%20Drohnen%20bek%C3%A4mpfen%20Eichenprozessionsspinner%2C%20Goldafter%20%26%20Palmenz%C3%BCnsler.%20Biologisch%2C%20ohne%20Pestizide%2C%20sicher%20f%C3%BCr%20Kinder%20%26%20Haustiere.%20Kostenlose%20Erstberatung%3A%20https%3A%2F%2Finsektenblitz.com" target="_blank" rel="noopener" title="Seite per WhatsApp teilen">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- PAGE HEADER -->
+<div style="background: var(--primary-green); padding: 100px 20px 60px; text-align: center;">
+  <p style="color: rgba(255,255,255,0.65); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px;">
+    <a href="index.html" style="color: rgba(255,255,255,0.65);">Startseite</a> &rsaquo; Blog
+  </p>
+  <h1 style="font-family: var(--serif); font-size: clamp(28px, 5vw, 46px); color: white; font-weight: 700; margin-bottom: 16px; line-height: 1.2;">Blog &amp; Wissen</h1>
+  <p style="color: rgba(255,255,255,0.85); font-size: 17px; max-width: 600px; margin: 0 auto; line-height: 1.7;">Alle Artikel zu Eichenprozessionsspinner, Goldafter &amp; Palmenzünsler – aktuell, fundiert, praxisnah.</p>
+</div>
+
+<!-- BLOG GRID -->
+<section style="padding: 60px 0 80px; background: var(--bg-light);">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 30px;">
+
+      <!-- 1: Wälder, Wege, Wohngebiete (Juli 2026) -->
+      <div style="background: white; border-radius: var(--radius); overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.08); transition: all 0.3s; display: flex; flex-direction: column;">
+        <div style="position: relative;">
+          <img src="images/blog-1-eiche.jpg" alt="Eichenprozessionsspinner 2026: Wälder und Wohngebiete" style="width: 100%; height: 200px; object-fit: cover; display: block;" loading="lazy" decoding="async">
+          <span style="position: absolute; top: 12px; left: 12px; background: var(--primary-green); color: white; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;">EPS-Wissen</span>
+        </div>
+        <div style="padding: 22px; flex-grow: 1; display: flex; flex-direction: column;">
+          <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 10px;">Juli 2026 · 3 Min Lesezeit</p>
+          <h2 style="font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; line-height: 1.4;">Eichenprozessionsspinner 2026: Wenn Wälder, Wege und Wohngebiete zur Gefahrenzone werden</h2>
+          <p style="font-size: 14px; color: var(--text-light); line-height: 1.7; margin-bottom: 18px; flex-grow: 1;">Eichenprozessionsspinner 2026 breiten sich in Wäldern und Wohngebieten aus. Jetzt informieren und kostenlose Erstberatung bei insektenblitz.com sichern.</p>
+          <a href="blog-eichenprozessionsspinner-2026-wenn-waelder-wege.html" style="color: var(--primary-green); font-weight: 700; font-size: 13px;">Artikel lesen &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 2: Bäume am Badegelände (Juli 2026) -->
+      <div style="background: white; border-radius: var(--radius); overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.08); transition: all 0.3s; display: flex; flex-direction: column;">
+        <div style="position: relative;">
+          <img src="images/alert-kinder.jpg" alt="EPS 2026: Bäume am Badegelände" style="width: 100%; height: 200px; object-fit: cover; display: block;" loading="lazy" decoding="async">
+          <span style="position: absolute; top: 12px; left: 12px; background: var(--primary-green); color: white; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;">EPS-Wissen</span>
+        </div>
+        <div style="padding: 22px; flex-grow: 1; display: flex; flex-direction: column;">
+          <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 10px;">Juli 2026 · 3 Min Lesezeit</p>
+          <h2 style="font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; line-height: 1.4;">Eichenprozessionsspinner 2026: Wenn Bäume am Badegelände zur Gefahr werden</h2>
+          <p style="font-size: 14px; color: var(--text-light); line-height: 1.7; margin-bottom: 18px; flex-grow: 1;">EPS 2026 in Freibädern und Badegeländen: Was Eltern und Anwohner jetzt wissen müssen – und wie Drohnen schnell und sicher helfen können.</p>
+          <a href="blog-eichenprozessionsspinner-2026-wenn-baeume-am.html" style="color: var(--primary-green); font-weight: 700; font-size: 13px;">Artikel lesen &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 3: Freibäder und Stadien gesperrt (Juli 2026) -->
+      <div style="background: white; border-radius: var(--radius); overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.08); transition: all 0.3s; display: flex; flex-direction: column;">
+        <div style="position: relative;">
+          <img src="images/alert-kinder.jpg" alt="EPS 2026: Freibäder und Stadien gesperrt" style="width: 100%; height: 200px; object-fit: cover; display: block;" loading="lazy" decoding="async">
+          <span style="position: absolute; top: 12px; left: 12px; background: var(--primary-green); color: white; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;">EPS-Wissen</span>
+        </div>
+        <div style="padding: 22px; flex-grow: 1; display: flex; flex-direction: column;">
+          <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 10px;">Juli 2026 · 3 Min Lesezeit</p>
+          <h2 style="font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; line-height: 1.4;">Eichenprozessionsspinner 2026: Wenn Freibäder und Stadien gesperrt werden müssen</h2>
+          <p style="font-size: 14px; color: var(--text-light); line-height: 1.7; margin-bottom: 18px; flex-grow: 1;">Freibäder gesperrt, Stadien abgesperrt: Der Eichenprozessionsspinner 2026 trifft öffentliche Orte hart. Was Eltern und Anwohner jetzt wissen müssen.</p>
+          <a href="blog-eichenprozessionsspinner-2026-wenn-freibaeder-und.html" style="color: var(--primary-green); font-weight: 700; font-size: 13px;">Artikel lesen &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 4: Kitas schließen (Juni 2026) -->
+      <div style="background: white; border-radius: var(--radius); overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.08); transition: all 0.3s; display: flex; flex-direction: column;">
+        <div style="position: relative;">
+          <img src="images/hero-kindergarten.jpg" alt="EPS 2026: Kitas schließen" style="width: 100%; height: 200px; object-fit: cover; display: block;" loading="lazy" decoding="async">
+          <span style="position: absolute; top: 12px; left: 12px; background: var(--primary-green); color: white; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;">EPS-Wissen</span>
+        </div>
+        <div style="padding: 22px; flex-grow: 1; display: flex; flex-direction: column;">
+          <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 10px;">Juni 2026 · 3 Min Lesezeit</p>
+          <h2 style="font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; line-height: 1.4;">Eichenprozessionsspinner 2026: Wenn Kitas schließen und ganze Stadtteile in Alarmbereitschaft sind</h2>
+          <p style="font-size: 14px; color: var(--text-light); line-height: 1.7; margin-bottom: 18px; flex-grow: 1;">EPS 2026 auf dem Vormarsch: Kitas gesperrt, Parks gesperrt, Allergiegefahr überall. Wie Sie Familie und Nachbarschaft jetzt schützen können.</p>
+          <a href="blog-eichenprozessionsspinner-2026-wenn-kitas.html" style="color: var(--primary-green); font-weight: 700; font-size: 13px;">Artikel lesen &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 5: Raupen in Kitas, Parks und Wohngebieten (Juni 2026) -->
+      <div style="background: white; border-radius: var(--radius); overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.08); transition: all 0.3s; display: flex; flex-direction: column;">
+        <div style="position: relative;">
+          <img src="images/hero-kindergarten.jpg" alt="EPS 2026: Raupen in Kitas, Parks und Wohngebieten" style="width: 100%; height: 200px; object-fit: cover; display: block;" loading="lazy" decoding="async">
+          <span style="position: absolute; top: 12px; left: 12px; background: var(--primary-green); color: white; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;">EPS-Wissen</span>
+        </div>
+        <div style="padding: 22px; flex-grow: 1; display: flex; flex-direction: column;">
+          <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 10px;">Juni 2026 · 3 Min Lesezeit</p>
+          <h2 style="font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; line-height: 1.4;">Eichenprozessionsspinner 2026: Wenn Raupen Kitas, Parks und Wohngebiete bedrohen</h2>
+          <p style="font-size: 14px; color: var(--text-light); line-height: 1.7; margin-bottom: 18px; flex-grow: 1;">Der Eichenprozessionsspinner breitet sich 2026 massiv aus. Was Eltern und Anwohner jetzt wissen müssen – und wie Drohnenbehandlung schnell hilft.</p>
+          <a href="blog-eichenprozessionsspinner-2026-wenn-raupen-kitas.html" style="color: var(--primary-green); font-weight: 700; font-size: 13px;">Artikel lesen &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 6: EPS Bürogebäude (Juni 2026) -->
+      <div style="background: white; border-radius: var(--radius); overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.08); transition: all 0.3s; display: flex; flex-direction: column;">
+        <div style="position: relative;">
+          <img src="images/blog-4-buero.jpg" alt="Büro mit geschlossenen Fenstern – EPS im Hochsommer" style="width: 100%; height: 200px; object-fit: cover; display: block;" loading="lazy" decoding="async">
+          <span style="position: absolute; top: 12px; left: 12px; background: var(--primary-green); color: white; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;">Arbeitsschutz</span>
+        </div>
+        <div style="padding: 22px; flex-grow: 1; display: flex; flex-direction: column;">
+          <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 10px;">Juni 2026 · 5 Min Lesezeit</p>
+          <h2 style="font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; line-height: 1.4;">Fenster zu trotz Hochsommer: Wenn der EPS Büros und Betriebe lahmlegt</h2>
+          <p style="font-size: 14px; color: var(--text-light); line-height: 1.7; margin-bottom: 18px; flex-grow: 1;">Brennhaare wehen durch offene Fenster – in Deutschland zwingt der Eichenprozessionsspinner immer mehr Betriebe zum Lüftungsverzicht. Was Arbeitgeber rechtlich schulden und was Gebäudeverantwortliche jetzt tun müssen.</p>
+          <a href="blog-eps-buerogebaeude.html" style="color: var(--primary-green); font-weight: 700; font-size: 13px;">Artikel lesen &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 7: EPS Saison 2025 (Mai 2025) -->
+      <div style="background: white; border-radius: var(--radius); overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.08); transition: all 0.3s; display: flex; flex-direction: column;">
+        <div style="position: relative;">
+          <img src="images/blog-1-eiche.jpg" alt="Eichenprozessionsspinner Saison 2025 – Frühwarnung" style="width: 100%; height: 200px; object-fit: cover; display: block;" loading="lazy" decoding="async">
+          <span style="position: absolute; top: 12px; left: 12px; background: var(--primary-green); color: white; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;">EPS-Wissen</span>
+        </div>
+        <div style="padding: 22px; flex-grow: 1; display: flex; flex-direction: column;">
+          <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 10px;">Mai 2025 · 5 Min Lesezeit</p>
+          <h2 style="font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; line-height: 1.4;">Eichenprozessionsspinner 2025: Warum der Befall immer früher beginnt</h2>
+          <p style="font-size: 14px; color: var(--text-light); line-height: 1.7; margin-bottom: 18px; flex-grow: 1;">Der Klimawandel verschiebt die EPS-Saison: Befälle beginnen heute oft schon im April statt im Mai. Was das für Familien bedeutet, warum Frühwarnung entscheidend ist – und wie KI-Drohnen den Unterschied machen.</p>
+          <a href="blog-eps-saison.html" style="color: var(--primary-green); font-weight: 700; font-size: 13px;">Artikel lesen &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 8: Gifthaare (April 2025) -->
+      <div style="background: white; border-radius: var(--radius); overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.08); transition: all 0.3s; display: flex; flex-direction: column;">
+        <div style="position: relative;">
+          <img src="images/blog-2-familie.jpg" alt="Gifthaare – Schutz für Kinder und Haustiere" style="width: 100%; height: 200px; object-fit: cover; display: block;" loading="lazy" decoding="async">
+          <span style="position: absolute; top: 12px; left: 12px; background: #d9534f; color: white; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;">Sicherheit &amp; Familie</span>
+        </div>
+        <div style="padding: 22px; flex-grow: 1; display: flex; flex-direction: column;">
+          <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 10px;">April 2025 · 4 Min Lesezeit</p>
+          <h2 style="font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; line-height: 1.4;">Gifthaare im Garten: So schützen Sie Kinder und Haustiere richtig</h2>
+          <p style="font-size: 14px; color: var(--text-light); line-height: 1.7; margin-bottom: 18px; flex-grow: 1;">Welche Symptome sind typisch? Wann muss ich handeln? Und wie erkenne ich einen Befall, bevor das erste Kind betroffen ist? Praktische Checkliste für Familien mit konkreten Erste-Hilfe-Tipps.</p>
+          <a href="blog-gifthaare-schutz.html" style="color: var(--primary-green); font-weight: 700; font-size: 13px;">Artikel lesen &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 9: Palmenzünsler Mallorca (März 2025) -->
+      <div style="background: white; border-radius: var(--radius); overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.08); transition: all 0.3s; display: flex; flex-direction: column;">
+        <div style="position: relative;">
+          <img src="images/blog-3-mallorca.jpg" alt="Palmenzünsler auf Mallorca" style="width: 100%; height: 200px; object-fit: cover; display: block;" loading="lazy" decoding="async">
+          <span style="position: absolute; top: 12px; left: 12px; background: #e6a817; color: white; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;">Palmenzünsler</span>
+        </div>
+        <div style="padding: 22px; flex-grow: 1; display: flex; flex-direction: column;">
+          <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 10px;">März 2025 · 6 Min Lesezeit</p>
+          <h2 style="font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; line-height: 1.4;">Palmenzünsler auf Mallorca: 5 Warnzeichen, die Sie kennen müssen</h2>
+          <p style="font-size: 14px; color: var(--text-light); line-height: 1.7; margin-bottom: 18px; flex-grow: 1;">Der Palmenzünsler breitet sich unaufhaltsam aus und tötet Palmen von innen. Erkennen Sie die Frühanzeichen – bevor es zu spät ist. Mit KI-Drohnen lässt sich der Befallsgrad heute präzise kartieren.</p>
+          <a href="blog-palmenzuensler-mallorca.html" style="color: var(--primary-green); font-weight: 700; font-size: 13px;">Artikel lesen &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div style="background: var(--primary-green); padding: 24px 20px; text-align: center;">
+  <p style="color: rgba(255,255,255,0.85); font-size: 13px; margin-bottom: 12px;">Kein Nest gefunden = keine Rechnung. 30-Tage-Nachbehandlungsgarantie.</p>
+  <a href="index.html#kontakt" class="btn btn-call" style="padding: 13px 28px; font-size: 14px; display: inline-flex;">Kostenlose Erstberatung →</a>
+</div>
+
+<!-- FOOTER -->
+<footer style="background: var(--primary-green); color: white; padding: 60px 0 30px 0; border-top: 1px solid rgba(255,255,255,0.15);">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
+
+      <div>
+        <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 15px; color: white; display: flex; align-items: center; gap: 10px;">
+          <img src="images/logo-insektenblitz.svg" alt="Logo" width="32" height="32">
+          Insektenblitz
+        </h3>
+        <p style="font-size: 14px; line-height: 1.7; opacity: 0.9;">Sichere Schädlingsbekämpfung mit Drohnen-Technologie. Für den Schutz Ihrer Familie, Haustiere und Umwelt.</p>
+      </div>
+
+      <div>
+        <h4 style="font-size: 14px; font-weight: 700; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">Kontakt</h4>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <a href="tel:+4952349089310" style="color: white; font-size: 15px; font-weight: 600; display: flex; align-items: center; gap: 8px;">📞 +49 5234 9089310</a>
+          <a href="mailto:info@insektenblitz.com" style="color: white; font-size: 14px; display: flex; align-items: center; gap: 8px;">📧 info@insektenblitz.com</a>
+          <p style="font-size: 13px; opacity: 0.8; margin-top: 8px;">Taubenweg 17, 32805 Horn-Bad Meinberg</p>
+          <p style="font-size: 12px; opacity: 0.7; margin-top: 5px;">Mo–Sa: 08:00–18:00 Uhr</p>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="font-size: 14px; font-weight: 700; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">Navigation</h4>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <a href="index.html#home" style="color: white; font-size: 14px; opacity: 0.9; transition: all 0.3s;">→ Home</a>
+          <a href="index.html#about" style="color: white; font-size: 14px; opacity: 0.9; transition: all 0.3s;">→ Über Uns</a>
+          <a href="index.html#pricing" style="color: white; font-size: 14px; opacity: 0.9; transition: all 0.3s;">→ Leistungen &amp; Preise</a>
+          <a href="index.html#kontakt" style="color: white; font-size: 14px; opacity: 0.9; transition: all 0.3s;">→ Kontakt</a>
+        </div>
+        <h4 style="font-size: 14px; font-weight: 700; margin-top: 20px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7;">Wissen</h4>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <a href="index.html#services" style="color: white; font-size: 14px; opacity: 0.9; transition: all 0.3s;">→ Schädlinge</a>
+          <a href="index.html#alert" style="color: white; font-size: 14px; opacity: 0.9; transition: all 0.3s;">→ Gefahren</a>
+          <a href="blog.html" style="color: white; font-size: 14px; opacity: 0.9; font-weight: 700;">→ Blog</a>
+          <a href="index.html#faq" style="color: white; font-size: 14px; opacity: 0.9; transition: all 0.3s;">→ FAQ</a>
+        </div>
+      </div>
+
+    </div>
+    <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 30px; text-align: center;">
+      <p style="font-size: 12px; opacity: 0.8; margin-bottom: 15px;">&copy; 2026 Insektenblitz. Alle Rechte vorbehalten.</p>
+      <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+        <a href="datenschutz.html" style="color: white; font-size: 12px; opacity: 0.8; transition: all 0.3s;">Datenschutz</a>
+        <span style="opacity: 0.5;">|</span>
+        <a href="impressum.html" style="color: white; font-size: 12px; opacity: 0.8; transition: all 0.3s;">Impressum</a>
+        <span style="opacity: 0.5;">|</span>
+        <a href="agb.html" style="color: white; font-size: 12px; opacity: 0.8; transition: all 0.3s;">AGB</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING CTA -->
+<div class="floating-cta">
+  <button onclick="window.location.href='index.html#kontakt'">Jetzt kostenlos beraten lassen →</button>
+</div>
+
+<script>
+  // Nav scroll shadow
+  const mainNav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    mainNav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // Hamburger Menu
+  const hamburger = document.getElementById('hamburger');
+  const navMenu   = document.getElementById('navMenu');
+  const navLinks  = navMenu.querySelectorAll('a');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+  navLinks.forEach(link => link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
+    document.querySelector('.nav-has-sub')?.classList.remove('open');
+  }));
+
+  // Wissen-Submenu Toggle
+  const wissenToggle = document.getElementById('wissenToggle');
+  if (wissenToggle) {
+    wissenToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const parent = wissenToggle.closest('.nav-has-sub');
+      const isOpen = parent.classList.toggle('open');
+      wissenToggle.setAttribute('aria-expanded', isOpen);
+    });
+  }
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('nav') && navMenu.classList.contains('active')) {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    }
+  });
+</script>
+</body>
+</html>
