@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lockfallen gegen Eichenprozessionsspinner: Was steckt hinter dem neuen Ansatz? – Insektenblitz</title>
+  <meta name="description" content="Lockfallen als neue Methode gegen den Eichenprozessionsspinner – was dahintersteckt, wie sicher sie sind und wann Drohnenbehandlung die bessere Wahl ist." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="images/logo-insektenblitz.svg" type="image/svg+xml" />
+  <meta property="og:title" content="Lockfallen gegen Eichenprozessionsspinner: Was steckt hinter dem neuen Ansatz?" />
+  <meta property="og:description" content="Lockfallen als neue Methode gegen den Eichenprozessionsspinner – was dahintersteckt, wie sicher sie sind und wann Drohnenbehandlung die bessere Wahl ist." />
+  <meta property="og:image" content="https://insektenblitz.com/images/hero-drohne-wald.jpg" />
+  <meta property="og:url" content="https://insektenblitz.com/blog-lockfallen-gegen-eichenprozessionsspinner-was.html" />
+  <link rel="stylesheet" href="fonts/fonts.css" />
+  <style>
+    :root { --green: #1d5a3d; --light: #2d8659; --red: #d9534f; --text: #1a2423; --muted: #6b7574; --bg: #f8f9f7; --serif: 'Merriweather', Georgia, serif; --sans: 'Open Sans', system-ui, sans-serif; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--sans); color: var(--text); line-height: 1.7; background: var(--bg); padding-top: 70px; }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    /* NAVIGATION */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(248,249,247,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #e0e5e3; height: 70px; display: flex; align-items: center; transition: box-shadow 0.3s ease; }
+    nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.1); }
+    .nav-logo { font-family: var(--sans); font-size: 19px; font-weight: 800; letter-spacing: -0.5px; text-transform: lowercase; color: #1d5a3d; display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo strong { font-weight: 800; color: #E98932; }
+    .nav-logo-img { width: 44px; height: 44px; flex-shrink: 0; }
+    .hamburger { display: flex; flex-direction: column; gap: 6px; cursor: pointer; background: none; border: none; padding: 8px; margin-right: -8px; }
+    .hamburger span { display: block; width: 25px; height: 3px; background: #1d5a3d; border-radius: 3px; transition: all 0.3s ease; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+    @media (min-width: 768px) { .hamburger { display: none; } }
+    .nav-menu { position: fixed; top: 70px; left: 0; width: 80%; max-width: 300px; height: calc(100vh - 70px); background: white; z-index: 99; transform: translateX(-100%); transition: transform 0.3s ease; box-shadow: 2px 0 10px rgba(0,0,0,0.1); overflow: hidden; }
+    .nav-menu.active { transform: translateX(0); }
+    .nav-links { display: flex; flex-direction: column; gap: 0; list-style: none; padding: 20px 0; }
+    .nav-links > li { border-bottom: 1px solid #e0e5e3; }
+    .nav-links a { display: block; padding: 16px 24px; font-size: 14px; font-weight: 600; color: #1a2423; transition: all 0.3s; text-transform: uppercase; letter-spacing: 1px; background: transparent; }
+    .nav-links a:hover { background: #f8f9f7; color: #1d5a3d; text-decoration: none; }
+    .nav-sub-toggle { width: 100%; background: none; border: none; padding: 16px 24px; text-align: left; font-size: 14px; font-weight: 600; color: #1a2423; cursor: pointer; display: flex; justify-content: space-between; align-items: center; text-transform: uppercase; letter-spacing: 1px; font-family: var(--sans); }
+    .nav-sub-toggle:hover { background: #f8f9f7; color: #1d5a3d; }
+    .nav-sub-arrow { font-size: 10px; transition: transform 0.3s; }
+    .nav-has-sub.open .nav-sub-arrow { transform: rotate(180deg); }
+    .nav-sub { display: none; list-style: none; background: #f8f9f7; }
+    .nav-has-sub.open .nav-sub { display: block; max-height: calc(100vh - 370px); overflow-y: auto; }
+    .nav-sub li { border-top: 1px solid #e0e5e3; }
+    .nav-sub a { padding: 13px 24px 13px 36px; font-size: 13px; color: #6b7574; text-decoration: none; }
+    .nav-kontakt-item a { background: #1d5a3d !important; color: white !important; text-align: center; margin: 12px 16px; border-radius: 8px; padding: 14px 24px !important; }
+    .nav-kontakt-item a:hover { background: #2d8659 !important; }
+    @media (min-width: 768px) {
+      .nav-menu { position: relative; transform: none; top: auto; width: auto; height: auto; max-width: none; background: none; box-shadow: none; overflow: visible; }
+      .nav-links { flex-direction: row; gap: 30px; padding: 0; align-items: center; }
+      .nav-links > li { border-bottom: none; }
+      .nav-links a { padding: 0; font-size: 12px; }
+      .nav-links a:hover { background: none; }
+      .nav-sub-toggle { padding: 0; font-size: 12px; background: none; width: auto; gap: 4px; }
+      .nav-sub-toggle:hover { background: none; }
+      .nav-has-sub { position: relative; }
+      .nav-sub { position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%); background: white; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); min-width: 160px; z-index: 50; display: block; visibility: hidden; opacity: 0; transition: opacity 0.15s ease 0.35s, visibility 0s linear 0.5s; }
+      .nav-has-sub:hover .nav-sub, .nav-has-sub.open .nav-sub { display: block; max-height: none; overflow-y: visible; visibility: visible; opacity: 1; transition: opacity 0.15s ease, visibility 0s; }
+      .nav-sub li { border-top: 1px solid #e0e5e3; }
+      .nav-sub a { padding: 12px 20px; font-size: 12px; white-space: nowrap; color: #1a2423; }
+      .nav-kontakt-item { display: none; }
+    }
+    .nav-cta { display: none; gap: 15px; align-items: center; }
+    @media (min-width: 768px) { .nav-cta { display: flex; } }
+    .hero-img { width: 100%; max-height: 420px; object-fit: cover; display: block; }
+    .article-wrap { max-width: 780px; margin: 0 auto; padding: 48px 24px 80px; }
+    .tag { display: inline-block; background: var(--green); color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 20px; }
+    h1 { font-family: var(--serif); font-size: clamp(26px, 5vw, 42px); font-weight: 700; line-height: 1.2; color: var(--text); margin-bottom: 16px; }
+    .meta { font-size: 13px; color: var(--muted); margin-bottom: 36px; padding-bottom: 24px; border-bottom: 1px solid #e0e5e3; }
+    h2 { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--green); margin: 40px 0 14px; }
+    p { margin-bottom: 18px; font-size: 16px; color: #2a3433; line-height: 1.8; }
+    ul, ol { margin: 0 0 20px 22px; }
+    li { margin-bottom: 10px; font-size: 16px; color: #2a3433; line-height: 1.7; }
+    .warning { background: #fff3cd; border-left: 4px solid var(--red); padding: 18px 22px; border-radius: 4px; margin: 30px 0; }
+    .warning strong { color: var(--red); }
+    .info-box { background: #e8f4ee; border-left: 4px solid var(--green); padding: 18px 22px; border-radius: 4px; margin: 30px 0; }
+    .info-box strong { color: var(--green); }
+    .checklist { background: white; border: 1px solid #e0e5e3; border-radius: 8px; padding: 24px 28px; margin: 30px 0; }
+    .checklist h3 { font-family: var(--serif); font-size: 18px; color: var(--green); margin-bottom: 16px; }
+    .checklist li { list-style: none; padding-left: 28px; position: relative; margin-bottom: 12px; }
+    .checklist li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+    .cta-box { background: linear-gradient(135deg, var(--green), var(--light)); color: white; padding: 36px; border-radius: 10px; text-align: center; margin: 50px 0 0; }
+    .cta-box h3 { font-family: var(--serif); font-size: 22px; margin-bottom: 12px; }
+    .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 24px; }
+    .btn { display: inline-block; background: var(--red); color: white; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 8px; text-decoration: none; }
+    footer { background: var(--green); color: white; text-align: center; padding: 24px; font-size: 13px; }
+    footer a { color: rgba(255,255,255,0.8); }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Lockfallen gegen Eichenprozessionsspinner: Was steckt hinter dem neuen Ansatz?",
+  "datePublished": "2026-09-06",
+  "author": {
+    "@type": "Organization",
+    "name": "Insektenblitz"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Insektenblitz"
+  },
+  "description": "Lockfallen als neue Methode gegen den Eichenprozessionsspinner – was dahintersteckt, wie sicher sie sind und wann Drohnenbehandlung die bessere Wahl ist.",
+  "url": "https://insektenblitz.com/blog-lockfallen-gegen-eichenprozessionsspinner-was.html",
+  "image": "https://insektenblitz.com/images/hero-drohne-wald.jpg"
+}
+  </script>
+</head>
+<body>
+  <nav>
+  <div style="padding: 0 20px; width: 100%; max-width: 100%; margin: 0; display: flex; align-items: center; justify-content: space-between; height: 100%;">
+    <a class="nav-logo" href="index.html" aria-label="Insektenblitz – zur Startseite">
+      <img class="nav-logo-img" src="images/logo-insektenblitz.svg" alt="Insektenblitz Logo">
+      <span>insekten<strong>blitz</strong></span>
+    </a>
+    <button class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-menu" id="navMenu">
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">Über Uns</a></li>
+        <li class="nav-has-sub">
+          <button class="nav-sub-toggle" aria-expanded="false" id="wissenToggle">
+            Wissen <span class="nav-sub-arrow">▾</span>
+          </button>
+          <ul class="nav-sub">
+            <li><a href="index.html#services">Schädlinge</a></li>
+            <li><a href="index.html#alert">Gefahren</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html#pricing">Preise</a></li>
+        <li class="nav-kontakt-item"><a href="index.html#kontakt">Kontakt anfragen</a></li>
+      </ul>
+    </div>
+    <div class="nav-cta">
+      <a href="index.html#kontakt" style="display: inline-flex; align-items: center; gap: 8px; padding: 16px 24px; font-size: 15px; font-weight: 700; letter-spacing: 0.5px; border-radius: 8px; cursor: pointer; border: none; text-transform: uppercase; background: #d9534f; color: white; text-decoration: none;">Beratung anfordern</a>
+    </div>
+  </div>
+</nav>
+
+  <img class="hero-img" src="images/hero-drohne-wald.jpg" alt="Lockfallen gegen Eichenprozessionsspinner: Was steckt hinter dem neuen Ansatz?">
+
+  <div class="article-wrap">
+    <span class="tag">EPS-Wissen</span>
+    <h1>Lockfallen gegen Eichenprozessionsspinner: Was steckt hinter dem neuen Ansatz?</h1>
+    <p class="meta">September 2026 &middot; 3 Minuten Lesezeit &middot; Insektenblitz</p>
+
+    <p>In einigen Gemeinden werden aktuell neue Wege im Kampf gegen den Eichenprozessionsspinner erprobt – darunter auch der Einsatz von Lockfallen. Das klingt zunächst vielversprechend, wirft aber gleichzeitig viele Fragen auf: Wie funktionieren solche Fallen? Für wen sind sie geeignet? Und schützen sie wirklich zuverlässig vor den gefährlichen Brennhaaren der Raupen? Dieser Beitrag gibt einen sachlichen Überblick – damit Eltern, Anwohner und Verantwortliche fundiert entscheiden können.</p>
+    <h2>Was sind Lockfallen und wie funktionieren sie?</h2>
+    <p>Lockfallen für den Eichenprozessionsspinner (EPS) funktionieren nach einem einfachen Prinzip: Sie setzen Duftstoffe oder andere Lockreize ein, um die Falter – also die erwachsenen Schmetterlinge – anzuziehen und zu fangen. Ziel ist es, die Fortpflanzung zu stören und damit langfristig die Populationsgröße zu reduzieren.</p>
+    <p>Der entscheidende Punkt dabei: Lockfallen richten sich ausschließlich gegen die Falter, nicht gegen die Raupen. Das ist wichtig zu verstehen, denn die gesundheitlichen Risiken gehen nicht vom Schmetterling aus, sondern von den Raupen und ihren feinen Brennhaaren. Diese mikroskopisch kleinen Härchen können beim Menschen Hautreizungen, Atemwegsprobleme und allergische Reaktionen auslösen – teils noch Monate nach dem Ende der eigentlichen Raupensaison, wenn die Haare bereits abgestorben im Gelände verteilt sind.</p>
+    <div class="highlight"><strong>Wichtig:</strong> Lockfallen allein reichen nicht: Bei akutem EPS-Befall in der Nähe von Wohngebieten, Schulen oder Spielplätzen ist eine sofortige Drohnenbehandlung der zuverlässigste Schutz.</div>
+    <h2>Chancen und Grenzen dieses Bekämpfungsansatzes</h2>
+    <p>Der Einsatz von Lockfallen ist ein interessanter populationsbiologischer Ansatz, der langfristig dazu beitragen kann, die Schmetterlingsdichte zu senken. Als alleinige Maßnahme ersetzt er jedoch keine unmittelbare Bekämpfung der Raupen, wenn diese bereits vorhanden und die Nester sichtbar sind.</p>
+    <p>Für Kommunen, die vorausschauend planen wollen und auf chemiefreie Methoden setzen, kann der Einsatz von Fallen als ergänzende Strategie sinnvoll sein – etwa in Kombination mit biologischen Behandlungen im Frühjahr. Wer aber heute schon mit einem akuten EPS-Befall umgehen muss, etwa auf einem Schulgelände, in einem Park oder in Wohnnähe, braucht schnell wirksame Lösungen, die direkt am Nest ansetzen.</p>
+    <p>Außerdem ist der Aufwand für Aufstellung, Pflege und Auswertung von Lockfallen nicht zu unterschätzen. Sie müssen regelmäßig kontrolliert, entleert und sachgemäß entsorgt werden – das erfordert Fachkenntnis und Kontinuität.</p>
+    <h2>Drohnenbehandlung: Sofortschutz mit biologischem Wirkstoff</h2>
+    <p>Während Lockfallen auf einen langfristigen Effekt abzielen, bietet die Drohnenbehandlung mit dem biologischen Wirkstoff Bacillus thuringiensis var. kurstaki (Btk) einen direkten und schnellen Schutz. Dieser natürlich vorkommende Bodenbakterienstamm wirkt gezielt gegen Schmetterlingsraupen und ist für Menschen, Haustiere und andere Tiere unbedenklich.</p>
+    <p>Bei insektenblitz.com setzen wir modernste Drohnentechnologie ein, um den Wirkstoff präzise und flächendeckend auf befallene Eichen aufzubringen – auch in schwer zugänglichen Bereichen wie Hanglagen, dichten Wäldern oder entlang von Straßen. Die Behandlung erfolgt in einem frühen Raupen-Stadium, wenn die Wirksamkeit am höchsten ist.</p>
+    <p>Das Besondere: Es werden keine Gifte eingesetzt. Btk ist EU-zugelassen, umweltverträglich und in der Forstwirtschaft seit Jahrzehnten bewährt. Gerade für Flächen, auf denen Kinder spielen oder Menschen sich regelmäßig aufhalten, ist das ein entscheidender Vorteil gegenüber chemischen Alternativen.</p>
+    <h2>Für Anwohner und Eltern: Wann sollte man handeln?</h2>
+    <p>Wenn Sie in Ihrer Nähe Eichen sehen, an denen Raupen in charakteristischen Prozessionen unterwegs sind, oder weiß-graue Nester in den Baumkronen entdecken, sollten Sie nicht lange warten. Der Kontakt mit den Brennhaaren kann auch ohne direktes Berühren erfolgen – der Wind trägt die Haare über weite Strecken.</p>
+    <p>Besondere Vorsicht ist geboten rund um Kinderspielplätze, Kitas, Schulen und Gärten. Kinder sind oft neugierig und reagieren empfindlicher auf die Raupenhaare als Erwachsene. Auch Haustiere, die durch Gras oder Gebüsch streifen, können Brennhaare aufnehmen.</p>
+    <p>Lockfallen mögen ein spannender Ansatz für die langfristige Populationskontrolle sein – für den unmittelbaren Schutz Ihrer Familie und Ihrer Nachbarschaft empfehlen wir eine professionelle Einschätzung. Unser Team berät Sie kostenlos und unverbindlich, welche Maßnahmen in Ihrer konkreten Situation sinnvoll und notwendig sind. Nehmen Sie einfach Kontakt auf – wir sind für Sie da.</p>
+    <h2>Quellen</h2>
+    <ul><li><a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxOcGpuY0dTVGRJVDJPWkZXX2E2S2xyTnE0ZDdtUEh2cUF0eUFrVDI2cnN0Tk5WcUJ3ZzZuRHpUbGJtOEhMb1VMYkppZGRFY3RZOTdVMVlaQWlsMWFXeWQ2MWllYUo0dVNYVFlXRG9zal9XY0Z6cDFuYm82VEJ2dUVoWmswbVZGcjVwQnNqN1JnaGszZ25IaFBVRzZNSE4?oc=5" rel="nofollow" target="_blank">Celler Presse</a></li></ul>
+
+    <div class="cta-box">
+      <h3>Jetzt handeln — bevor der Befall sichtbar wird</h3>
+      <p>Kostenlose Erstberatung durch unsere Experten. Wir beurteilen Ihren Fall und erstellen ein individuelles Angebot.</p>
+      <a class="btn" href="tel:+4952349089310">📞 +49 5234 9089310 anrufen</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Insektenblitz &middot; Senior Living UG &middot; <a href="impressum.html">Impressum</a> &middot; <a href="datenschutz.html">Datenschutz</a></p>
+  </footer>
+</body>
+</html>
